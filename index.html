@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Agent Files: The Vault</title>
+    </head>
+    <body>
+        <h1>TOP SECRET: The Vault Mission</h1>
+        <marquee behavior="scroll" direction="right">Warning: Find the code as soon as possible</marquee>
+        <p>Welcome <strong>Aisha</strong>, <em>find the vault code</em></p>
+        <hr>
+        <h2>Mission Board</h2>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <caption>Evidence collected in the field</caption>
+            <tr>
+                <th>Group</th>
+                <th>Clue</th>
+                <thue 2</td>
+                <td>Market</td>
+                <td id="c2">5</td>
+            </tr>
+            <tr>
+                <td>Clue 3</td>
+                <td>Bus Station</td>
+                <td id="c3">8</td>
+            </tr>
+            <tr>
+                <td>Clue 4</td>
+                <td>School gate</td>
+                <td id="c4">3</td>
+            </tr>
+            <tr>
+                <td colspan="3">Vault code</td>
+                <td id="code">?</td>
+            </tr>
+        </table>
+        <h2>Security check</h2>
+        <ul>
+            <li>Access granted: <span id="access"></span></li>
+            <li>Code is even: <span id="even"></span></li>
+        </ul>
+        <h2>Sealed envelope</h2>
+        <details>
+            <summary>Open the envelope</summary>
+            <p id="message">The message is still sealed...</p>
+        </details>
+        <script>
+            let clue1 = document.getElementById("c1").innerHTML;
+            let clue2 = document.getElementById("c2").innerHTML;
+            let clue3 = document.getElementById("c3").innerHTML;
+            let clue4 = document.getElementById("c4").innerHTML;
+            console.log(clue1 + clue2);
+            let n1 = Number(clue1);
+            let n2 = Number(clue2);
+            let n3 = Number(clue3);
+            let n4 = Number(clue4);
+            console.log(n1+n2);
+
+            var part1 = n1 + n2;
+            var part2 = n3 * n4;
+            var code = part1 * 100 + part2;
+            console.log(code);
+            document.getElementById("code").innerHTML=code;
+
+            let agentLevel = 4;
+            let hasBadge = true;
+            let access = agentLevel >=3 && hasBadge == true;
+            console.log(access);
+            document.getElementById("access").innerHTML = access;
+            let isEven = code % 2 == 0;
+            console.log(isEven);
+            document.getElementById("even").innerHTML = isEven;
+
+            {
+                var place = "the old library";
+                let secretWord = "moonlight";
+            }
+            console.log(place);
+            // console.log(secretWord);
+
+            let agentName = "Aisha";
+            let message = "Agent " + agentName + ", the vault code is " + code + ". Meet at the " + place + ".";
+            document.getElementById("message").innerHTML = message;
+        </script>
+    </body>
+</html>
